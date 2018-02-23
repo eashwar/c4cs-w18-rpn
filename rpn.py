@@ -18,6 +18,7 @@ operators = {
     '/': operator.truediv,
     '!': math.factorial,
     '++': math.fsum,
+    '^': math.pow,
 }
 
 def calculate(arg):
