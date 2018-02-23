@@ -3,6 +3,7 @@
 import operator
 import logging
 import sys
+import math
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -15,6 +16,7 @@ operators = {
     '-': operator.sub,
     '*': operator.mul,
     '/': operator.truediv,
+    '!': math.factorial,
 }
 
 def calculate(arg):
@@ -26,9 +28,15 @@ def calculate(arg):
             stack.append(value)
         except ValueError:
             function = operators[token]
-            arg2 = stack.pop()
-            arg1 = stack.pop()
-            result = function(arg1, arg2)
+            #this if will grow to include other
+            #single-arg operators
+            if function == math.factorial:
+                arg = stack.pop()
+                result = function(arg)
+            else:
+                arg2 = stack.pop()
+                arg1 = stack.pop()
+                result = function(arg1, arg2)
             stack.append(result)
         logger.debug(stack)
   
