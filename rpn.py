@@ -30,14 +30,17 @@ def calculate(arg):
             function = operators[token]
             #this if will grow to include other
             #single-arg operators
-            if function == math.factorial:
-                arg = stack.pop()
-                result = function(arg)
-            else:
-                arg2 = stack.pop()
-                arg1 = stack.pop()
-                result = function(arg1, arg2)
-            stack.append(result)
+            try:
+                if function == math.factorial:
+                    arg = stack.pop()
+                    result = function(arg)
+                else:
+                    arg2 = stack.pop()
+                    arg1 = stack.pop()
+                    result = function(arg1, arg2)
+                stack.append(result)
+            except ZeroDivisionError:
+                print('Error: divide by zero')
         logger.debug(stack)
   
     if len(stack) != 1:
