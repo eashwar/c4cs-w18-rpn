@@ -33,5 +33,7 @@ class TestBasics(unittest.TestCase):
     def test_summation(self):
         result = rpn.calculate('1 2 3 4 5 ++')
         self.assertEqual(15, result)
-
+    def test_exponentiation(self):
+        result = rpn.calculate('2 4 ^')
+        self.assertEqual(16, result)
 
