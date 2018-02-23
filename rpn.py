@@ -17,6 +17,7 @@ operators = {
     '*': operator.mul,
     '/': operator.truediv,
     '!': math.factorial,
+    '++': math.fsum,
 }
 
 def calculate(arg):
@@ -34,6 +35,9 @@ def calculate(arg):
                 if function == math.factorial:
                     arg = stack.pop()
                     result = function(arg)
+                elif function == math.fsum:
+                    result = function(stack)
+                    stack = list()
                 else:
                     arg2 = stack.pop()
                     arg1 = stack.pop()

@@ -30,3 +30,8 @@ class TestBasics(unittest.TestCase):
     def test_zero_div(self):
         result = rpn.calculate('1 2 + 8 0 /')
         self.assertEqual(3, result)
+    def test_summation(self):
+        result = rpn.calculate('1 2 3 4 5 ++')
+        self.assertEqual(15, result)
+
+
