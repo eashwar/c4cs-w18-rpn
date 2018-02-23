@@ -6,7 +6,7 @@ operators = {
     '+': operator.add,
     '-': operator.sub,
     '*': operator.mul,
-    '/': operator.truediv
+    '/': operator.truediv,
 }
 def calculate(arg):
     stack = list()

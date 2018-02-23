@@ -21,3 +21,6 @@ class TestBasics(unittest.TestCase):
     def test_div(self):
         result = rpn.calculate('6 3 /')
         self.assertEqual(2, result)
+    def test_multiple_operators(self):
+        result = rpn.calculate('2 10 * 5 8 * + 3 /')
+        self.assertEqual(20, result)
